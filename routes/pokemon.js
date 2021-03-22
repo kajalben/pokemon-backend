@@ -1,19 +1,11 @@
 const express = require('express');
-const jsonData = require('../file.json')
 const router = express.Router();
+const {getResult, createResult} = require('../controllers/pokemonController');
 
 // get route
-router.get('/', (req, res)=> {
-  res.json(jsonData)
-})
+router.get('/', getResult)
 
-router.get('/:id', (req, res)=> {
-  const {id} = req.params
-    const getOnePokemon = jsonData.find(pokemon => pokemon.id === Number(id))
-    if(!getOnePokemon) return res.status(404).send("Invalid entry")
-   res.json(getOnePokemon)
-    // res.json(jsonData)
-   })
+router.post('/', createResult)
 
 
 module.exports = router;
