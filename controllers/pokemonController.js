@@ -1,6 +1,7 @@
 const GameResult = require('../models/GameResult')
 
 exports.getResult = async (req, res, next) =>{
+    console.log("get route");
     try{
         const getResults = await GameResult.find({});
         res.json(getResults)
@@ -12,7 +13,7 @@ exports.getResult = async (req, res, next) =>{
 
 exports.createResult = async(req, res, next) =>{
     const {user_poke_name, random_poke_name, winner_poke_name } = req.body;
-    console.log( req.body);
+    console.log(req.body);
     try{
         const createResult = await GameResult.create({ user_poke_name, random_poke_name, winner_poke_name});
         res.json(createResult)

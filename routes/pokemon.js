@@ -3,9 +3,8 @@ const router = express.Router();
 const {getResult, createResult} = require('../controllers/pokemonController');
 
 // get route
-router.get('/', getResult)
-
-router.post('/', createResult)
+router.get('/leaderboard', getResult)
+router.post('/save', createResult)
 
 
 module.exports = router;
